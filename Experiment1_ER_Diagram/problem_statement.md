@@ -46,8 +46,9 @@ Design a database for patient management, appointments, medical records, and bil
    - How you modeled prerequisites or billing.
 
 # ER Diagram Submission
-## NAME - Hashwatha M
-## REGISTER NUMBER - 212223240051
+
+NAME - Hashwatha M
+REGISTER NUMBER - 212223240051
 
 ## Scenario Chosen:
 University ER Diagram
