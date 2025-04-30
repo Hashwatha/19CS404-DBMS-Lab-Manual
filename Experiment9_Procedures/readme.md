@@ -1,5 +1,8 @@
 # Experiment 9: PL/SQL – Procedures and Functions
 
+## Name : HASHWATHA M
+## REG NO : 212223240051
+
 ## AIM
 To understand and implement procedures and functions in PL/SQL for performing various operations such as calculations, decision-making, and looping.
 
