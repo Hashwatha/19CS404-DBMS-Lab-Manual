@@ -80,7 +80,68 @@ END;
 **Output:**  
 The program should display the employee details or an error message.
 
----
+## pROGRAM:
+```
+-- Step 1: Create the employees table
+BEGIN
+    EXECUTE IMMEDIATE 'DROP TABLE employees';
+EXCEPTION
+    WHEN OTHERS THEN
+        NULL; -- Ignore if table doesn't exist
+END;
+/
+
+CREATE TABLE employees (
+    emp_id NUMBER PRIMARY KEY,
+    emp_name VARCHAR2(100),
+    designation VARCHAR2(100)
+);
+
+-- Step 2: Insert sample data
+BEGIN
+    INSERT INTO employees VALUES (1, 'John Doe', 'Manager');
+    INSERT INTO employees VALUES (2, 'Jane Smith', 'Developer');
+    INSERT INTO employees VALUES (3, 'Mike Johnson', 'Analyst');
+    COMMIT;
+END;
+/
+
+-- Step 3: Cursor to fetch and display employee names and designations
+SET SERVEROUTPUT ON;
+
+DECLARE
+    CURSOR emp_cursor IS
+        SELECT emp_name, designation FROM employees;
+
+    v_name employees.emp_name%TYPE;
+    v_designation employees.designation%TYPE;
+    no_data BOOLEAN := TRUE;
+BEGIN
+    OPEN emp_cursor;
+    LOOP
+        FETCH emp_cursor INTO v_name, v_designation;
+        EXIT WHEN emp_cursor%NOTFOUND;
+
+        no_data := FALSE; -- Data was fetched
+        DBMS_OUTPUT.PUT_LINE('Name: ' || v_name || ', Designation: ' || v_designation);
+    END LOOP;
+    CLOSE emp_cursor;
+
+    IF no_data THEN
+        RAISE NO_DATA_FOUND;
+    END IF;
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('No employee records found.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('An unexpected error occurred: ' || SQLERRM);
+END;
+/
+```
+## OUTPUT:
+
+![image](https://github.com/user-attachments/assets/184ff1c0-cda9-4ac1-b4f6-031ee150fb39)
 
 ### **Question 2: Parameterized Cursor with Exception Handling**
 
@@ -98,8 +159,10 @@ The program should display the employee details or an error message.
 
 **Output:**  
 The program should display the employee details within the specified salary range or an error message if no data is found.
+## PROGRAM:
+```
 
----
+```
 
 ### **Question 3: Cursor FOR Loop with Exception Handling**
 
