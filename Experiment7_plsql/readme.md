@@ -1,5 +1,6 @@
 # Experiment 7: PL/SQL – Variables, Control Structures and Loops
-
+## NAME : HASHWATHA M
+## REG NO : 212223240051
 ## AIM
 To write and execute simple PL/SQL programs using variables, loops, and conditional statements.
 
