@@ -1,5 +1,6 @@
 # Experiment 1: Entity-Relationship (ER) Diagram
-
+## NAME : HASHWATHA M
+## REG NO : 212223240051
 ## 🎯 Objective:
 To understand and apply the concepts of ER modeling by creating an ER diagram for a real-world application.
 
